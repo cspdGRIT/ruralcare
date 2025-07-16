@@ -15,21 +15,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            pointer-events: none;
-            z-index: 1;
         }
 
         .container {
@@ -82,21 +69,6 @@
             padding: 120px 0 80px;
             text-align: center;
             color: white;
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2));
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat center bottom;
-            background-size: cover;
-            pointer-events: none;
         }
 
         .hero h1 {
@@ -421,20 +393,9 @@
 
     <section class="hero">
         <div class="container">
-            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 1rem 2rem; border-radius: 50px; display: inline-block; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2);">
-                <span style="color: #ffd54f; font-weight: bold;">🚀 India's #1 Care Platform</span> • <span style="color: rgba(255,255,255,0.9);">Trusted by 2.3L+ families</span>
-            </div>
             <div class="market-size">Transforming India's ₹45,000 Cr Elder Care Market</div>
             <h1>CareConnect</h1>
             <p>India's first comprehensive care-taking platform connecting verified caregivers with families across rural and tier-2 cities. Bridging the care gap for 138 million elderly Indians through smart matching, verified profiles, and affordable access.</p>
-            
-            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 1.5rem; border-radius: 15px; margin: 2rem auto; max-width: 600px; border: 1px solid rgba(255,255,255,0.2);">
-                <h3 style="margin-bottom: 1rem; color: #ffd54f;">💡 Why Families Choose Us</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;">
-                    <div>✅ Only ₹10 to connect<br>✅ No agency commissions<br>✅ Direct caregiver contact</div>
-                    <div>✅ Verified backgrounds<br>✅ 24/7 emergency support<br>✅ Multi-language platform</div>
-                </div>
-            </div>
             
             <div class="stats">
                 <div class="stat">
@@ -456,14 +417,8 @@
             </div>
 
             <div class="cta-buttons">
-                <a href="#demo" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">🎯 Try Live Demo</a>
-                <a href="#features" class="btn btn-secondary" style="font-size: 1.1rem; padding: 15px 40px;">📚 Learn More</a>
-            </div>
-
-            <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
-                <span style="color: #ffd54f;">⚡ Instant matching</span> • 
-                <span style="color: #ffd54f;">🛡️ Verified profiles</span> • 
-                <span style="color: #ffd54f;">📞 24/7 support</span>
+                <a href="#demo" class="btn btn-primary">Try Live Demo</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
@@ -797,9 +752,6 @@
 
                 <div id="contact-notification" class="notification">
                     🎉 Contact details shared! Sunita Devi will call you within 30 minutes. Payment of ₹10 processed successfully.
-                    <div style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9;">
-                        ⚠️ Important: All negotiations, terms, pricing and agreements are between you and the caregiver directly.
-                    </div>
                 </div>
 
                 <div id="verification-notification" class="notification">
@@ -809,163 +761,7 @@
         </div>
     </section>
 
-    <section class="how-it-works" style="background: white; padding: 80px 0;">
-        <div class="container">
-            <div class="section-header">
-                <h2>How CareConnect Works</h2>
-                <p>Simple 4-step process to find verified caregivers</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; position: relative;">
-                <div style="text-align: center; position: relative;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #4a90e2, #4fc3f7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem; font-weight: bold;">1</div>
-                    <h3 style="margin-bottom: 1rem; color: #333;">Post Your Need</h3>
-                    <p style="color: #666;">Share your care requirements, location, budget, and preferences. Our AI instantly starts finding matches.</p>
-                    <div style="margin-top: 1rem; padding: 0.5rem; background: #e8f5e8; border-radius: 8px; font-size: 0.9rem; color: #2e7d32;">
-                        ⚡ Takes just 2 minutes
-                    </div>
-                </div>
-
-                <div style="text-align: center; position: relative;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #4fc3f7, #29b6f6); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem; font-weight: bold;">2</div>
-                    <h3 style="margin-bottom: 1rem; color: #333;">Get Smart Matches</h3>
-                    <p style="color: #666;">View verified caregivers ranked by relevance, distance, ratings, and availability. Filter by experience and specialization.</p>
-                    <div style="margin-top: 1rem; padding: 0.5rem; background: #e3f2fd; border-radius: 8px; font-size: 0.9rem; color: #1976d2;">
-                        🎯 AI matches in 60 seconds
-                    </div>
-                </div>
-
-                <div style="text-align: center; position: relative;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #29b6f6, #26c6da); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem; font-weight: bold;">3</div>
-                    <h3 style="margin-bottom: 1rem; color: #333;">Pay ₹10 & Connect</h3>
-                    <p style="color: #666;">Pay just ₹10 to get contact details. No subscription, no hidden charges. Direct communication with your chosen caregiver.</p>
-                    <div style="margin-top: 1rem; padding: 0.5rem; background: #fff3e0; border-radius: 8px; font-size: 0.9rem; color: #f57c00;">
-                        💰 Transparent pricing
-                    </div>
-                </div>
-
-                <div style="text-align: center; position: relative;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(45deg, #26c6da, #4caf50); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem; font-weight: bold;">4</div>
-                    <h3 style="margin-bottom: 1rem; color: #333;">Interview & Hire</h3>
-                    <p style="color: #666;">Conduct your own interviews, verify references, negotiate terms, and hire directly. All arrangements between you and caregiver.</p>
-                    <div style="margin-top: 1rem; padding: 0.5rem; background: #e8f5e8; border-radius: 8px; font-size: 0.9rem; color: #2e7d32;">
-                        🤝 Direct relationship
-                    </div>
-                </div>
-            </div>
-
-            <div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); padding: 2rem; border-radius: 15px; margin-top: 3rem; text-align: center;">
-                <h3 style="color: #333; margin-bottom: 1rem;">🚨 Remember: CareConnect's Role Ends at Step 3!</h3>
-                <p style="color: #666; font-size: 1.1rem;">After connecting you with caregivers, all negotiations, hiring, payments, contracts, and working relationships are entirely between you and the caregiver. We are just the bridge!</p>
-            </div>
-        </div>
-    </section>
-        <div class="container">
-            <div class="section-header">
-                <h2 style="color: white;">Real Stories, Real Impact</h2>
-                <p style="color: rgba(255,255,255,0.9);">Families and caregivers sharing their CareConnect success stories</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
-                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.5rem;">👨‍👩‍👧</div>
-                        <div>
-                            <h4>Rajesh Sharma Family</h4>
-                            <small>Pune → Rural Maharashtra</small>
-                        </div>
-                    </div>
-                    <p style="font-style: italic; margin-bottom: 1rem;">"Found the perfect caregiver for my 78-year-old father in just 10 minutes! Sunita ji has been taking care of papa for 6 months now. The ₹10 contact fee saved us thousands compared to agencies."</p>
-                    <div style="color: #ffd54f;">⭐⭐⭐⭐⭐ "Life-changing platform!"</div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
-                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.5rem;">👩‍⚕️</div>
-                        <div>
-                            <h4>Meera Devi</h4>
-                            <small>Caregiver, Jaipur</small>
-                        </div>
-                    </div>
-                    <p style="font-style: italic; margin-bottom: 1rem;">"I was unemployed for 2 years. CareConnect changed my life! Now I earn ₹18,000/month caring for elderly people. The training programs helped me improve my skills and get better opportunities."</p>
-                    <div style="color: #ffd54f;">⭐⭐⭐⭐⭐ "Earning with dignity!"</div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);">
-                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                        <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.5rem;">🏥</div>
-                        <div>
-                            <h4>Dr. Priya Patel</h4>
-                            <small>Healthcare Consultant</small>
-                        </div>
-                    </div>
-                    <p style="font-style: italic; margin-bottom: 1rem;">"As a doctor, I was skeptical about online platforms. But CareConnect's verification process impressed me. They're bridging a critical gap in rural healthcare support. Highly recommended!"</p>
-                    <div style="color: #ffd54f;">⭐⭐⭐⭐⭐ "Professional & reliable!"</div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <div style="background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 15px; display: inline-block;">
-                    <h3 style="margin-bottom: 1rem;">🏆 Platform Achievements</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
-                        <div><strong>98%</strong><br>Family Satisfaction</div>
-                        <div><strong>50K+</strong><br>Successful Matches</div>
-                        <div><strong>₹2.3Cr</strong><br>Caregiver Earnings</div>
-                        <div><strong>24/7</strong><br>Support Available</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-        <div class="container">
-            <div class="section-header">
-                <h2 style="color: #e74c3c;">Important Disclaimers & Terms</h2>
-                <p style="color: #666;">Please read carefully before using CareConnect</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid #e74c3c; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #e74c3c; margin-bottom: 1rem;">🔗 Connection Service Only</h3>
-                    <p><strong>CareConnect is ONLY a connection platform.</strong> We facilitate contact between families and caregivers. All negotiations, pricing, terms of service, working hours, salary discussions, and agreements are <strong>exclusively between you and the caregiver</strong>.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid #f39c12; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #f39c12; margin-bottom: 1rem;">💰 Our Role vs Your Role</h3>
-                    <p><strong>We provide:</strong> Verification, connection, platform.<br>
-                    <strong>You handle:</strong> All negotiations, contracts, payments to caregivers, work arrangements, disputes, legal matters, insurance, background re-verification.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid #e67e22; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #e67e22; margin-bottom: 1rem;">⚠️ No Liability</h3>
-                    <p><strong>CareConnect is NOT responsible for:</strong> Work quality, disputes, injuries, theft, negligence, contracts, payments, or any issues arising from the caregiver-client relationship. Use at your own discretion.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid #8e44ad; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #8e44ad; margin-bottom: 1rem;">🔍 Verification Limits</h3>
-                    <p>Our verification is basic identity confirmation only. <strong>You must conduct your own detailed background checks</strong>, interviews, reference calls, and skill assessments before hiring any caregiver.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid #27ae60; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #27ae60; margin-bottom: 1rem;">📞 Post-Contact Independence</h3>
-                    <p><strong>After paying ₹10 for contact details</strong>, all further communications, meetings, hiring decisions, and working relationships are entirely between you and the caregiver. CareConnect's role ends at connection.</p>
-                </div>
-
-                <div style="background: white; padding: 2rem; border-radius: 15px; border-left: 5px solid #3498db; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #3498db; margin-bottom: 1rem;">⚖️ Legal Independence</h3>
-                    <p>Both parties are <strong>independent entities</strong>. Any legal issues, contracts, employment matters, or disputes must be resolved directly between caregiver and client without CareConnect involvement.</p>
-                </div>
-            </div>
-
-            <div style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 2rem; border-radius: 15px; margin-top: 3rem; text-align: center;">
-                <h3 style="margin-bottom: 1rem;">🛡️ Your Safety Checklist</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                    <div>✅ Conduct video interviews<br>✅ Check 3+ references<br>✅ Verify documents yourself</div>
-                    <div>✅ Start with trial periods<br>✅ Set clear expectations<br>✅ Have written agreements</div>
-                    <div>✅ Keep emergency contacts<br>✅ Regular check-ins<br>✅ Trust your instincts</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <footer>
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
                 <div>
@@ -995,20 +791,6 @@
     </footer>
 
     <script>
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const arrow = element.querySelector('span');
-            
-            if (answer.style.display === 'none' || answer.style.display === '') {
-                answer.style.display = 'block';
-                arrow.innerHTML = '▲';
-                answer.style.animation = 'slideIn 0.3s ease-out';
-            } else {
-                answer.style.display = 'none';
-                arrow.innerHTML = '▼';
-            }
-        }
-
         function showDemo(type) {
             // Hide all demo contents
             document.querySelectorAll('.demo-content').forEach(content => {
