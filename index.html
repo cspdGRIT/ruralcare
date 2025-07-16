@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareConnect - Bridging Care in Rural India</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e3f2fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .market-size {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #ffd54f;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #4a90e2, #4fc3f7);
+            color: white;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #4a90e2, #4fc3f7);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-badge {
+            background: linear-gradient(45deg, #4a90e2, #4fc3f7);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .feature-stats {
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .pricing {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffd54f;
+            transform: scale(1.05);
+        }
+
+        .demo {
+            background: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .demo-interface {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-top: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .demo-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .demo-tab {
+            padding: 10px 20px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .demo-tab.active {
+            background: linear-gradient(45deg, #4a90e2, #4fc3f7);
+            color: white;
+        }
+
+        .demo-content {
+            display: none;
+            text-align: left;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .demo-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .notification {
+            background: linear-gradient(45deg, #4caf50, #8bc34a);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .notification.show {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd54f;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">CareConnect</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="market-size">Transforming India's ₹45,000 Cr Elder Care Market</div>
+            <h1>CareConnect</h1>
+            <p>India's first comprehensive care-taking platform connecting verified caregivers with families across rural and tier-2 cities. Bridging the care gap for 138 million elderly Indians through smart matching, verified profiles, and affordable access.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Verified Caregivers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2.3L+</div>
+                    <div class="stat-label">Families Served</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">₹10</div>
+                    <div class="stat-label">Contact Fee Only</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#demo" class="btn btn-primary">Try Live Demo</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Revolutionary Care Features</h2>
+                <p>Comprehensive platform designed specifically for India's rural care challenges</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-badge">AI-Powered</div>
+                    <div class="feature-title">Smart Caregiver Matching</div>
+                    <div class="feature-description">Advanced AI algorithms match caregivers based on skills, location, availability, language, and family preferences with 94% success rate.</div>
+                    <div class="feature-stats">60-second matching • 15+ parameters • Real-time availability</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Verified Safe</div>
+                    <div class="feature-title">Complete Background Verification</div>
+                    <div class="feature-description">Aadhaar verification, police clearance, medical certificates, reference checks, and continuous monitoring for complete peace of mind.</div>
+                    <div class="feature-stats">7-step verification • Govt. database checks • Insurance covered</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Regional Focus</div>
+                    <div class="feature-title">Multi-Language Support</div>
+                    <div class="feature-description">Native language interface in 22 Indian languages with voice commands, making care accessible to rural families and elderly users.</div>
+                    <div class="feature-stats">22 languages • Voice enabled • Offline capable</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Affordable</div>
+                    <div class="feature-title">Pay-Per-Contact Model</div>
+                    <div class="feature-description">Revolutionary ₹10 contact fee system - no hidden charges, no subscription. Pay only when you connect with a caregiver.</div>
+                    <div class="feature-stats">₹10 contact fee • No subscription • Transparent pricing</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Emergency Ready</div>
+                    <div class="feature-title">24/7 Emergency Response</div>
+                    <div class="feature-description">Instant emergency alert system connecting families, caregivers, and nearby medical facilities with GPS tracking and real-time updates.</div>
+                    <div class="feature-stats">< 5 min response • GPS enabled • Medical network</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Trust Building</div>
+                    <div class="feature-title">Real-Time Family Updates</div>
+                    <div class="feature-description">Live photo/video updates, health monitoring, medication reminders, and detailed daily reports keeping families connected and informed.</div>
+                    <div class="feature-stats">Live updates • Health tracking • Family dashboard</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Skill Development</div>
+                    <div class="feature-title">Caregiver Training Hub</div>
+                    <div class="feature-description">Comprehensive training programs in elderly care, medical assistance, nutrition, and emergency response with certification and skill upgrades.</div>
+                    <div class="feature-stats">50+ courses • Certified training • Skill badges</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Government Linked</div>
+                    <div class="feature-title">Scheme Integration</div>
+                    <div class="feature-description">Direct integration with Ayushman Bharat, state elderly care schemes, and subsidies - maximizing benefits for eligible families.</div>
+                    <div class="feature-stats">12 government schemes • Auto-eligibility • Subsidy calculator</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-badge">Community Driven</div>
+                    <div class="feature-title">Local Care Networks</div>
+                    <div class="feature-description">Building community care networks with neighbor alerts, local volunteer programs, and village-level care coordination systems.</div>
+                    <div class="feature-stats">Village networks • Volunteer programs • Community alerts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Simple, Transparent Pricing</h2>
+                <p style="color: rgba(255,255,255,0.9);">No hidden fees, no long-term contracts. Pay only for what you use.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Connect</h3>
+                    <div style="font-size: 2rem; margin: 1rem 0;"><strong>₹10</strong> <small>per contact</small></div>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>✓ Contact any caregiver</li>
+                        <li>✓ Basic profile access</li>
+                        <li>✓ Direct communication</li>
+                        <li>✓ Basic support</li>
+                    </ul>
+                    <button class="btn btn-primary">Start Connecting</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div style="background: #ffd54f; color: #333; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; margin-bottom: 1rem;">Most Popular</div>
+                    <h3>Care Plus</h3>
+                    <div style="font-size: 2rem; margin: 1rem 0;"><strong>₹299</strong> <small>per month</small></div>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>✓ Unlimited contacts</li>
+                        <li>✓ Premium matching</li>
+                        <li>✓ Background reports</li>
+                        <li>✓ 24/7 emergency support</li>
+                        <li>✓ Family dashboard</li>
+                        <li>✓ Health monitoring</li>
+                    </ul>
+                    <button class="btn btn-primary">Choose Care Plus</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Care Pro</h3>
+                    <div style="font-size: 2rem; margin: 1rem 0;"><strong>₹599</strong> <small>per month</small></div>
+                    <ul style="text-align: left; margin: 1rem 0;">
+                        <li>✓ Everything in Care Plus</li>
+                        <li>✓ Dedicated care coordinator</li>
+                        <li>✓ Insurance assistance</li>
+                        <li>✓ Government scheme help</li>
+                        <li>✓ Multiple care members</li>
+                        <li>✓ Priority support</li>
+                    </ul>
+                    <button class="btn btn-primary">Go Pro</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3 style="margin-bottom: 1rem;">For Caregivers</h3>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Join our platform for free. Earn ₹8,000-₹25,000 per month</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+                    <div>
+                        <h4>Free Registration</h4>
+                        <p>✓ Profile creation<br>✓ Basic verification<br>✓ Job applications</p>
+                    </div>
+                    <div>
+                        <h4>Premium (₹99/month)</h4>
+                        <p>✓ Priority in search<br>✓ Advanced training<br>✓ Insurance coverage<br>✓ Multiple city access</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience CareConnect Live</h2>
+                <p>Interactive demo showcasing real platform features</p>
+            </div>
+
+            <div class="demo-interface">
+                <div class="demo-tabs">
+                    <button class="demo-tab active" onclick="showDemo('client')">I Need Care</button>
+                    <button class="demo-tab" onclick="showDemo('caregiver')">I'm a Caregiver</button>
+                    <button class="demo-tab" onclick="showDemo('matching')">Smart Matching</button>
+                </div>
+
+                <div id="client-demo" class="demo-content active">
+                    <h3>Post Your Care Requirement</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <div class="form-group">
+                                <label>Care Type</label>
+                                <select id="care-type">
+                                    <option>Elderly Care (Daily assistance)</option>
+                                    <option>Post-surgery Care</option>
+                                    <option>Companion Care</option>
+                                    <option>Medical Care</option>
+                                    <option>Night Care</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" placeholder="Enter your area/village">
+                            </div>
+                            <div class="form-group">
+                                <label>Duration</label>
+                                <select>
+                                    <option>Few hours daily</option>
+                                    <option>8 hours daily</option>
+                                    <option>12 hours daily</option>
+                                    <option>24/7 live-in care</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Budget (per day)</label>
+                                <select>
+                                    <option>₹500-800</option>
+                                    <option>₹800-1200</option>
+                                    <option>₹1200-1800</option>
+                                    <option>₹1800+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label>Special Requirements</label>
+                                <textarea placeholder="e.g., Hindi speaking, diabetes care experience, female caregiver preferred"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Language</label>
+                                <select>
+                                    <option>Hindi</option>
+                                    <option>Telugu</option>
+                                    <option>Tamil</option>
+                                    <option>Bengali</option>
+                                    <option>Marathi</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" onclick="showMatching()" style="width: 100%; margin-top: 1rem;">Find Caregivers (₹10)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="caregiver-demo" class="demo-content">
+                    <h3>Caregiver Registration</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Experience</label>
+                                <select>
+                                    <option>0-1 years</option>
+                                    <option>1-3 years</option>
+                                    <option>3-5 years</option>
+                                    <option>5+ years</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Specializations</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem;">
+                                    <label><input type="checkbox"> Elderly Care</label>
+                                    <label><input type="checkbox"> Medical Care</label>
+                                    <label><input type="checkbox"> Post-surgery</label>
+                                    <label><input type="checkbox"> Dementia Care</label>
+                                    <label><input type="checkbox"> Physiotherapy</label>
+                                    <label><input type="checkbox"> Diabetic Care</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label>Service Areas</label>
+                                <input type="text" placeholder="Areas you can serve">
+                            </div>
+                            <div class="form-group">
+                                <label>Available Hours</label>
+                                <select>
+                                    <option>Part-time (4-6 hours)</option>
+                                    <option>Full-time (8-12 hours)</option>
+                                    <option>Live-in (24/7)</option>
+                                    <option>Flexible</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Expected Rate (per day)</label>
+                                <input type="number" placeholder="Your expected daily rate">
+                            </div>
+                            <button class="btn btn-primary" onclick="showVerification()" style="width: 100%; margin-top: 1rem;">Register & Get Verified</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="matching-demo" class="demo-content">
+                    <h3>AI-Powered Smart Matching Results</h3>
+                    <div style="text-align: left;">
+                        <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <strong>Found 12 verified caregivers in your area!</strong> ⚡ Matched in 2.3 seconds
+                        </div>
+                        
+                        <div style="display: grid; gap: 1rem;">
+                            <div style="border: 2px solid #4a90e2; border-radius: 10px; padding: 1rem; background: white;">
+                                <div style="display: flex; justify-content: between; align-items: center;">
+                                    <div style="flex: 1;">
+                                        <strong>Sunita Devi</strong> ⭐ 4.9 (127 reviews) <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">Verified</span>
+                                        <div style="color: #666; margin: 0.5rem 0;">
+                                            🏥 5 years experience • 📍 2.3 km away • 💬 Hindi, Telugu<br>
+                                            🔹 Elderly care specialist • 🔹 Diabetes management • 🔹 Female caregiver
+                                        </div>
+                                        <div style="color: #4a90e2; font-weight: bold;">₹800/day • Available immediately</div>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-primary" onclick="showContact()">Contact (₹10)</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="border: 1px solid #ddd; border-radius: 10px; padding: 1rem; background: white;">
+                                <div style="display: flex; justify-content: between; align-items: center;">
+                                    <div style="flex: 1;">
+                                        <strong>Ramesh Kumar</strong> ⭐ 4.7 (89 reviews) <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">Verified</span>
+                                        <div style="color: #666; margin: 0.5rem 0;">
+                                            🏥 3 years experience • 📍 4.1 km away • 💬 Hindi, English<br>
+                                            🔹 Medical care • 🔹 Physiotherapy assistance • 🔹 Night shifts available
+                                        </div>
+                                        <div style="color: #4a90e2; font-weight: bold;">₹900/day • Available from tomorrow</div>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-primary">Contact (₹10)</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="border: 1px solid #ddd; border-radius: 10px; padding: 1rem; background: white;">
+                                <div style="display: flex; justify-content: between; align-items: center;">
+                                    <div style="flex: 1;">
+                                        <strong>Lakshmi Aunty</strong> ⭐ 4.8 (156 reviews) <span style="background: #4caf50; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">Verified</span>
+                                        <div style="color: #666; margin: 0.5rem 0;">
+                                            🏥 7 years experience • 📍 3.8 km away • 💬 Telugu, Hindi<br>
+                                            🔹 Companion care • 🔹 Cooking • 🔹 Emotional support specialist
+                                        </div>
+                                        <div style="color: #4a90e2; font-weight: bold;">₹750/day • Available this week</div>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-primary">Contact (₹10)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <button class="btn btn-secondary">View All 12 Matches</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact-notification" class="notification">
+                    🎉 Contact details shared! Sunita Devi will call you within 30 minutes. Payment of ₹10 processed successfully.
+                </div>
+
+                <div id="verification-notification" class="notification">
+                    ✅ Registration successful! Our verification team will contact you within 24 hours to complete your profile verification.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <h3>CareConnect</h3>
+                    <p>Bridging the care gap in rural India through technology and trust.</p>
+                </div>
+                <div>
+                    <h4>For Families</h4>
+                    <p>Find verified caregivers<br>Emergency support<br>Government schemes</p>
+                </div>
+                <div>
+                    <h4>For Caregivers</h4>
+                    <p>Free registration<br>Skill development<br>Earn ₹8K-25K/month</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p>📞 1800-CARE-911<br>📧 help@careconnect.in<br>Available 24/7</p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #34495e;">
+                <p>&copy; 2025 CareConnect. Making care accessible for every Indian family.</p>
+                <p style="margin-top: 1rem;">
+                    <strong>We're raising ₹15 Cr Series A to scale across rural India and capture the massive elder care opportunity.</strong>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showDemo(type) {
+            // Hide all demo contents
+            document.querySelectorAll('.demo-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.demo-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected demo
+            document.getElementById(type + '-demo').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function showMatching() {
+            showDemo('matching');
+            document.querySelector('.demo-tab:nth-child(3)').classList.add('active');
+            document.querySelector('.demo-tab:nth-child(1)').classList.remove('active');
+        }
+
+        function showContact() {
+            document.getElementById('contact-notification').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('contact-notification').classList.remove('show');
+            }, 5000);
+        }
+
+        function showVerification() {
+            document.getElementById('verification-notification').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('verification-notification').classList.remove('show');
+            }, 5000);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add some interactive animations
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize card animations
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+        });
+    </script>
+</body>
+</html>
